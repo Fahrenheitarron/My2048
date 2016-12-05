@@ -161,13 +161,18 @@ function updateBoardView(){
 				theNumberCell.css('background-color',getNumberBackgroundColor(board[i][j]));
 				theNumberCell.css('color',getNumberColor(board[i][j]));
 				theNumberCell.text(board[i][j]);
+				if (board[i][j]<128) {
+					theNumberCell.css('font-size',0.6*cellSideLength+'px');
+				}else if (board[i][j]<1024) {
+					theNumberCell.css('font-size',0.5*cellSideLength+'px');
+				}else{
+					theNumberCell.css('font-size',0.4*cellSideLength+'px');
+				}
 			}
 			hasConflict[i][j]=false;
 		}
 	}
 	$('.number-cell').css('line-height',cellSideLength+'px');
-	$('.number-cell').css('font-size',0.6*cellSideLength+'px');
-	
 }
 
 //随机产生一个格子
